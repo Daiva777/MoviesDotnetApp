@@ -1,0 +1,37 @@
+﻿[15:23] Jagadeesan, Lavanya
+
+version: 1  
+
+frontend:  
+
+  phases:  
+
+    preBuild:  
+
+      commands:  
+
+        - curl -sSL https://dotnet.microsoft.com/download/dotnet/scripts/v1/dotnet-install.sh > dotnet-install.sh  
+
+        - chmod +x *.sh  
+
+        - ./dotnet-install.sh -c 6.0 -InstallDir ./dotnet6  
+
+        - ./dotnet6/dotnet --version  
+
+    build:  
+
+      commands:  
+
+        - ./dotnet6/dotnet publish -c release -o release  
+
+  artifacts:  
+
+    baseDirectory: /release/wwwroot  
+
+    files:  
+
+      - '**/*'  
+
+  cache:  
+
+    paths: []
