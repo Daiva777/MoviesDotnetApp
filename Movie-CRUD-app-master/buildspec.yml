@@ -10,7 +10,8 @@ frontend:
     build:  
       commands:  
         - ./dotnet6/dotnet publish -c release -o release  
-  artifacts:    
+  artifacts:   
+   baseDirectory: /bin/Release/net6.0/publish
     files:  
       - '**/*'  
   cache:  
